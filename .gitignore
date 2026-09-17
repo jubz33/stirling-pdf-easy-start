@@ -1,0 +1,21 @@
+# Publish only these reviewed setup files. Runtime data stays private.
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/compose.yaml
+!/start-stirling.bat
+!/stop-stirling.bat
+
+# Never commit local configuration, databases, backups, logs or signing keys.
+/stirling/
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.db
+*.sql
+*.log
+*.pdf

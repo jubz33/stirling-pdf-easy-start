@@ -1,0 +1,15 @@
+services:
+  stirling-pdf:
+    image: docker.stirlingpdf.com/stirlingtools/stirling-pdf:latest
+
+    container_name: stirling-pdf
+
+    ports:
+      - "8080:8080"
+
+    volumes:
+      - ./stirling/data:/usr/share/tessdata
+      - ./stirling/config:/configs
+      - ./stirling/logs:/logs
+
+    restart: unless-stopped
