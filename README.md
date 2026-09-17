@@ -29,7 +29,7 @@ This folder runs Stirling PDF using Docker Compose. You can merge, split, compre
 
 1. Open Docker Desktop and wait until its engine is running (Linux containers).
 2. Double-click `start-stirling.bat` in your setup folder.
-3. Your browser opens **http://localhost:8080**.
+3. Your browser opens **http://localhost:8080**. The launcher window also shows **network links for friends**, with the connection name beside each one. It stays open so you can copy a link; press any key when finished.
 4. If the page is not ready, wait a little longer and refresh. The script waits only five seconds; application startup or the first image download can take longer.
 5. Sign in with your existing Stirling PDF account. On a fresh installation, consult the [official first-login instructions](https://docs.stirlingpdf.com/Installation/Docker%20Install/), and change the initial administrator password before sharing network access. Login is enabled by default.
 
@@ -66,6 +66,10 @@ Some operations send documents to this hosting computer for processing. The moun
 Run `start-stirling.bat` or `docker compose up -d` as above. Keep your computer awake, connected to the network, and Docker Desktop running. Your friend only needs a browser; they do not need Docker or a copy of this folder.
 
 ### Share your computer's local address
+
+The easiest way is to copy a network link printed by `start-stirling.bat`. Send your friend the link for the Wi-Fi or Ethernet network you share. The launcher detects the address each time it runs; it does not save your address in this repository or change firewall settings. If several connections are active, it may show several links.
+
+If automatic detection fails, or you started with `docker compose up -d` directly, find the address manually:
 
 Find your computer's local IPv4 address with `ipconfig`. For example, if the address is **192.168.1.50**, a friend connected to the same home/local network can try:
 
@@ -158,7 +162,7 @@ Test-NetConnection 192.168.1.50 -Port 8080
 | File or folder | Purpose |
 | --- | --- |
 | `compose.yaml` | Docker image, port mapping, persistent folders, and restart policy. |
-| `start-stirling.bat` | Starts the service and opens the local browser URL. |
+| `start-stirling.bat` | Starts the service, opens the local browser URL, and displays network links to share with friends. |
 | `stop-stirling.bat` | Stops the service. |
 | `stirling/config/` | Settings, application database, database backups, and signing keys. |
 | `stirling/logs/` | Application and authentication logs. |
